@@ -1,0 +1,116 @@
+﻿Create database SpaceExplorers;
+
+USE SpaceExplorers;
+
+-- Crear tablas.
+
+CREATE TABLE Answers (
+	IdAnswers INT NOT NULL auto_increment,
+	Answer TEXT NOT NULL,
+	PRIMARY KEY (IdAnswers)
+) ENGINE=InnoDB;
+
+CREATE TABLE Questions (
+	IdQuestions INT NOT NULL auto_increment,
+	Question TEXT NOT NULL,
+	PRIMARY KEY (IdQuestions)
+) ENGINE=InnoDB;
+
+CREATE TABLE Category (
+	IdCategory INT NOT NULL auto_increment,
+	Category varchar (10) NOT NULL,
+	IdQuestions INT NOT NULL,
+	IdAnswers INT NOT NULL, 
+	PRIMARY KEY (IdCategory),
+	CONSTRAINT IdQuestions FOREIGN KEY (IdQuestions)
+		REFERENCES Questions (IdQuestions),
+	CONSTRAINT IdAnswers FOREIGN KEY (IdAnswers)
+		REFERENCES Answers (IdAnswers)
+) ENGINE=InnoDB;
+
+CREATE TABLE SE (
+	IdSE INT NOT NULL auto_increment,
+	IdCategory INT NULL,
+	PRIMARY KEY (IdSE),
+	CONSTRAINT IdCategory FOREIGN KEY (IdCategory)
+		REFERENCES Category (IdCategory)
+) ENGINE=InnoDB;
+
+
+
+-- Insertar datos en la tabla Answers
+INSERT INTO `spaceexplorers`.`answers` (`IdAnswers`, `Answer`) VALUES ('1000', 'Belgica'), ('1001', 'Rumania'), 
+('1002', 'Hungría'), ('1003', 'Via Lactea'), ('1004', 'Andromeda'), ('1005', 'Nubes de Magallanes'), ('1006', 'Sol'), 
+('1007', 'Agujero negro'), ('1008', 'Explosion cosmica'), ('1009', 'Urano'), ('1010', 'Saturno'), ('1011', 'Jupiter'), 
+('1012', 'Tierra'), ('1013', 'Venus'), ('1014', 'Marte'), ('1015', 'Europa'), ('1016', 'Asia'), ('1017', 'Africa'), 
+('1018', 'Jaipur'), ('1019', 'Taj Mahal'), ('1020', 'Delhi'), ('1021', 'Paris'), ('1022', 'Bordeaux'), ('1023', 'Lyon'), 
+('1024', 'America'), ('1025', 'Europa'), ('1026', 'Antartida'), ('1027', 'Pluton'), ('1028', 'No Existe'), 
+('1029', 'Antares'), ('1030', 'Rigel'), ('1031', 'Sirio'), ('1032', 'Agua'), ('1033', 'Gas'), ('1034', 'Roca'), 
+('1035', '1967'), ('1036', '1970'), ('1037', '1969'), ('1038', 'Al norte del planeta'), ('1039', 'En el ecuador'), 
+('1040', 'En el meridiano de Grenwitch'), ('1041', 'NGC 6822'), ('1042', 'Por la implosion de una supernova'), 
+('1043', 'Solo aparecieron'), ('1044', 'Por la implosion e una enana'), ('1045', 'Monaco'), ('1046', 'Mexico'), 
+('1047', 'Marruecos'), ('1048', 'Un sol'), ('1049', 'Un agujero negro'), ('1050', 'Un meteorito');
+
+
+-- Insertar datos en la tabla Questions
+INSERT INTO `spaceexplorers`.`questions` (`IdQuestions`, `Question`) VALUES ('5000', 'País en el que se encuentra la ciudad de Brujas
+'), ('5001', 'La galaxia que está más cercana de la nuestra es:'), ('5002', 'La mayor fuerza destructiva del universo es:
+'), ('5003', 'El planeta que tiene una luna llamada Europa es:'), ('5004', 'Cual es el planeta del sistema soolar
+'), ('5005', 'En qué continente se localiza la ciudad de Fez'), ('5006', 'Es el monumento más representativo de la India
+'), ('5007', 'Ciudad en la que se encuentra el museo de Louvre'), ('5008', 'Continente en el que se encuentra el palacio de Bellas Artes
+'), ('5009', 'Cuál es el noveno planeta de nuestro sistema solar'), ('5010', 'Es la estrella más brillante del firmamento nocturno
+'), ('5011', 'Titan es una luna de:'), ('5012', 'Es el elemento dominante en la luna Europa'), ('5013', 'Jupiter esta constituído en su mayoría por
+'), ('5014', 'Fue el año en que el hombre piso la luna por primera vez '), ('5015', 'En dónde es más común vizualizar auroras boreales
+'), ('5016', 'En qué galáxia nos encontramos'), ('5017', 'Como se generan lo agujeros negros'), ('5018', 'País donde se localiza la UNAM
+'), ('5019', 'Que hay enn el centro de las galaxias');
+
+
+-- Insertar datos en la tabla Category
+INSERT INTO `category`(`IdCategory`, `Category`, `IdQuestions`, `IdAnswers`) VALUES 
+('7000','C','5000','1000'), ('7001','C','5000','1001'), ('7002','C','5000','1002'),
+('7003','G','5001','1003'), ('7004','G','5001','1004'), ('7005','G','5001','1005'),
+('7006','G','5002','1006'), ('7007','G','5002','1007'), ('7008','G','5002','1008'),
+('7009','SS','5003','1009'), ('7010','SS','5003','1010'), ('7011','SS','5003','1011'),
+('7011','SS','5004','1012'), ('7012','SS','5004','1013'), ('7013','SS','5004','1014'),
+('7014','S','5005','1015'), ('7015','S','5005','1016'), ('7016','S','5005','1017'), 
+('7017','S','5006','1018'), ('7018','S','5006','1019'), ('7019','S','5006','1020'),
+('7020','S','5007','1021'), ('7021','S','5007','1022'), ('7022','S','5007','1023'), 
+('7023','P','5008','1024'), ('7024','P','5008','1025'), ('7025','P','5008','1026'), 
+('7026','SS','5009','1027'), ('7027','SS','5009','1028'), ('7028','SS','5009','1009'), 
+('7029','SS','5010','1029'), ('7030','SS','5010','1030'), ('7031','SS','5010','1031'),
+('7032','SS','5011','1010'), ('7033','SS','5011','1011'), ('7034','SS','5011','1013'),
+('7035','SS','5012','1032'), ('7036','SS','5012','1033'), ('7037','SS','5012','1034'), 
+('7038','SS','5013','1034'), ('7039','SS','5013','1032'), ('7040','SS','5013','1033'), 
+('7041','SS','5014','1035'), ('7042','SS','5014','1036'), ('7043','SS','5014','1037'), 
+('7044','SS','5015','1038'), ('7045','SS','5015','1039'), ('7046','SS','5015','1040'), 
+('7047','G','5016','1003'), ('7048','G','5016','1005'), ('7049','G','5016','1041'), 
+('7050','G','5017','1042'), ('7051','G','5017','1043'), ('7052','G','5017','1044'), 
+('7053','P','5018','1045'), ('7054','P','5018','1046'), ('7055','P','5018','1047'), 
+('7056','G','5019','1048'), ('7057','G','5019','1049'), ('7058','G','5019','1050');
+
+
+
+-- Insertar datos en la tabla SE
+INSERT INTO `se`(`IdSE`, `IdCategory`) VALUES 
+('10000','7000'),
+('10001','7003'),
+('10002','7008'),
+('10003','7010'),
+('10004','7013'),
+('10005','7015'),
+('10006','7018'),
+('10007','7020'),
+('10008','7023'),
+('10009','7027'),
+('10010','7031'),
+('10011','7033'),
+('10012','7035'),
+('10013','7040'),
+('10014','7043'),
+('10015','7044'),
+('10016','7047'),
+('10017','7050'),
+('10018','7054'),
+('10019','7057');
+
+

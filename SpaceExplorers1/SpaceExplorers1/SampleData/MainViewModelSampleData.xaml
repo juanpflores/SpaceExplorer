@@ -1,0 +1,16 @@
+﻿<vm:MainViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:SpaceExplorers1.ViewModels"
+    SampleProperty="Valor de propiedad Sample Text">
+
+    <vm:MainViewModel.Items>
+        <vm:ItemViewModel LineOne="diseño uno" LineTwo="Maecenas praesent accumsan bibendum" />
+        <vm:ItemViewModel LineOne="diseño dos" LineTwo="Dictumst eleifend facilisi faucibus" />
+        <vm:ItemViewModel LineOne="diseño tres" LineTwo="Habitant inceptos interdum lobortis" />
+        <vm:ItemViewModel LineOne="diseño cuatro" LineTwo="Nascetur pharetra placerat pulvinar" />
+        <vm:ItemViewModel LineOne="diseño cinco" LineTwo="Sagittis senectus sociosqu suscipit" />
+        <vm:ItemViewModel LineOne="diseño seis" LineTwo="Torquent ultrices vehicula volutpat" />
+    </vm:MainViewModel.Items>
+
+</vm:MainViewModel>
